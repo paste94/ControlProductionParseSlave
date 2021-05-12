@@ -1,7 +1,8 @@
 import Parse from 'parse'
+import serverUrl from '../serverUrl.json'
 
 Parse.initialize('ParseServerAzzalin');
-Parse.serverURL = 'http://localhost:1337/parse'
+Parse.serverURL = serverUrl.URL
 
 const commesse = 'commesse'
 const impiegati = 'impiegati'

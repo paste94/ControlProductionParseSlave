@@ -19,6 +19,24 @@ function addLavoro(macchina, impiegato, commessa, preventivo, startTime, callbac
         )
 }
 
+
+function subtractDates(date_future, date_now){
+    // get total seconds between the times
+    let delta = Math.abs(date_future - date_now) / 1000;
+    console.log(date_future)
+    // calculate (and subtract) whole days
+    let days = Math.floor(delta / 86400);
+    delta -= days * 86400;
+    // calculate (and subtract) whole hours
+    let hours = Math.floor(delta / 3600) % 24;
+    delta -= hours * 3600;
+    // calculate (and subtract) whole minutes
+    let minutes = Math.floor(delta / 60) % 60;
+    delta -= minutes * 60;
+    console.log(hours,':',minutes)
+    return hours + ':' + minutes
+  }
+
 function getLavori(impiegatoId, callback, errorCallback){
     new Parse.Query(lavori)
         .equalTo('impiegatoId', impiegatoId)
@@ -50,15 +68,19 @@ function closeJobs(lavoriIdList, callback, errorCallback){
     lavoriIdList.forEach( lavoro => {
         new Parse.Query(lavori)
             .get(lavoro.id)
-            .then((lavoro) => {
-                lavoro.set('fine', new Date()).save()
+            .then( lavoroQuery => {
+                const fine = new Date()
+                lavoroQuery
+                    .set('fine', fine)
+                    .set('tempo', subtractDates(lavoro.inizio, fine))
+                    .save()
             })
-            .catch((error) => {
+            .catch( error => 
                 errorCallback({
                     title: 'Errore di connessione',
                     message: error.message
                 })
-            })
+            )
     })
     callback()
 }

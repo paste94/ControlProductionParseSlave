@@ -1,8 +1,10 @@
 {
-  "name": "control-production-master",
+  "name": "control-production-slave",
   "version": "0.1.0",
   "private": true,
   "main": "public/electron.js",
+  "author": "Riccardo Pasteris",
+  "homepage":"./",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -11,6 +13,7 @@
     "body-parser": "^1.19.0",
     "bootstrap": "^4.5.3",
     "cross-env": "^7.0.2",
+    "edit-json-file": "^1.5.0",
     "electron-is-dev": "^1.2.0",
     "express": "^4.17.1",
     "firebase": "^8.1.2",
@@ -42,12 +45,20 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "dev": "concurrently -k \"npm start\" \"npm:electron\"",
-    "electron": "wait-on tcp:3000 && electron ."
+    "react:start": "set PORT=3000 && react-scripts start",
+    "react:build": "set PORT=3000 && react-scripts build",
+    "react:test": "set PORT=3000 && react-scripts test",
+    "react:eject": "set PORT=3000 && react-scripts eject",
+    "electron:build": "electron-builder --ia32",
+    "release": "npm run react:build && npm run electron-builder --publish=always",
+    "build32": "npm run react:build && npm run electron:build",
+    "build": "npm run react:build && npm run electron:build",
+    "start": "concurrently \"cross-env BROWSER=none npm run react:start\" \"wait-on http://localhost:3000 && electron .\""
+  },
+  "build": {
+    "appId": "com.electron.react.control-production-slave",
+    "icon": "build/logo512.png",
+    "asar":"false"
   },
   "eslintConfig": {
     "extends": [
