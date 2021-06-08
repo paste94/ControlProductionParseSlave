@@ -1,21 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { Row, Col, Container, Button } from 'react-bootstrap';
-import { useLocation, useHistory } from 'react-router';
+import { useLocation } from 'react-router';
 import { getAllMacchine } from '../../DAO/Macchine.service';
-import { FaArrowLeft } from "react-icons/fa";
 import MacchineTable from './MacchineTable';
 import ModalConfirm from './ModalConfirm';
+import { FaTimes } from "react-icons/fa"
+import { NavLink } from 'react-router-dom';
 
 function SelectMacchina(){
     const impiegato = useLocation().state.impiegato
     const commessa = useLocation().state.commessa
     const preventivo = useLocation().state.preventivo
-    const history = useHistory()
 
     const [macchine, setMacchine] = useState([])
     const [macchina, setMacchina] = useState(undefined)
 
-    const handleGoBack = () => history.goBack()
     const handleSelect = (macc) => setMacchina(macc)
 
     useEffect(() => {
@@ -27,12 +26,13 @@ function SelectMacchina(){
             <Container fluid className='mt-4'>
                 <Row className="justify-content-center mt-4">
                     <Col md="1" sm="1" xs="1" className='my-auto'> 
-                        <Button 
-                            variant='light' 
-                            onClick={ handleGoBack }
-                            title='Indietro' >
-                                <FaArrowLeft/>
-                        </Button>
+                        <NavLink to='/selectImpiegato' key={0} activeClassName="active">
+                            <Button
+                                variant='transparent'
+                                title='Annulla operazione' >
+                                <FaTimes/>
+                            </Button>
+                        </NavLink>
                     </Col>
                     <Col className='my-auto'> 
                         <h1>Selezionare la macchina da usare</h1>

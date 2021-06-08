@@ -2,12 +2,12 @@ import React from 'react';
 import { useLocation } from 'react-router';
 import { Row, Col, Container, Button } from 'react-bootstrap';
 import { useHistory } from 'react-router'
-import { FaArrowLeft } from "react-icons/fa"
+import { FaTimes } from "react-icons/fa"
+import { NavLink } from 'react-router-dom';
 
 function SelectNewOrTerminate(){
     const impiegato = useLocation().state.impiegato
     const history = useHistory()
-    const handleGoBack = () => history.goBack()
 
     const handleGoToNewLavoro = () => {
         history.push({
@@ -28,12 +28,13 @@ function SelectNewOrTerminate(){
             <Container fluid className='mt-4'>
                 <Row className="justify-content-center mt-4">
                     <Col md="1" sm="1" xs="1" className='my-auto'> 
-                        <Button 
-                            variant='light' 
-                            onClick={ handleGoBack }
-                            title='Indietro' >
-                                <FaArrowLeft/>
-                        </Button>
+                        <NavLink to='/selectImpiegato' key={0} activeClassName="active">
+                            <Button
+                                variant='transparent'
+                                title='Annulla operazione' >
+                                <FaTimes/>
+                            </Button>
+                        </NavLink>
                     </Col>
                     <Col className='my-auto'> 
                         <h1>Selezionare l'azione da eseguire</h1>

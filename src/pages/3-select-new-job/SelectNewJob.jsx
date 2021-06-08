@@ -5,8 +5,9 @@ import { getAllCommesse } from '../../DAO/Commesse.service'
 import { selectPreventiviFromCommessa } from '../../DAO/Preventivo.service'
 import CommesseTable from './CommesseTable'
 import PreventiviTable from './PreventiviTable'
-import { FaArrowLeft } from "react-icons/fa"
+import { FaArrowLeft, FaCross, FaTimes } from "react-icons/fa"
 import { Alert, AlertContainer } from 'react-bs-notifier'
+import { NavLink } from 'react-router-dom';
 
 function SelectNewJob(){
     const impiegato = useLocation().state.impiegato
@@ -25,7 +26,6 @@ function SelectNewJob(){
         setPreventivo(undefined)
         setCommessa(comm)
     }
-    const handleGoBack = () => history.goBack()
     const handleSelectPreventivo = (prev) => setPreventivo(prev)
     const handleConfirm = () => 
         history.push({
@@ -42,6 +42,7 @@ function SelectNewJob(){
         setErrMessage(err.message)
         setErrTitle(err.title)
         setErrShow(true)
+        setPreventivi([])
     }
 
     useEffect(() => {
@@ -69,12 +70,13 @@ function SelectNewJob(){
             <Container fluid className='mt-4'>
                 <Row className="justify-content-center mt-4">
                     <Col md="1" sm="1" xs="1" className='my-auto'> 
-                        <Button 
-                            variant='light' 
-                            onClick={ handleGoBack }
-                            title='Indietro' >
-                                <FaArrowLeft/>
-                        </Button>
+                        <NavLink to='/selectImpiegato' key={0} activeClassName="active">
+                            <Button
+                                variant='transparent'
+                                title='Annulla operazione' >
+                                <FaTimes/>
+                            </Button>
+                        </NavLink>
                     </Col>
                     <Col className='my-auto'> 
                         <h1>Selezionare il nuovo lavoro da iniziare</h1>
