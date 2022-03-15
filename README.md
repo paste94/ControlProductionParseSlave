@@ -1,7 +1,7 @@
 # Aggiornamento v0.0.2
 
 ## Installazione
-Una volta clonato il progetto da git, esegui il comando ` yarn install ` per installare le dipendenze. 
+Una volta clonato il progetto da git, esegui il comando `yarn install` per installare le dipendenze. 
 
 ## Developing
 per eseguire il programma in developer mode è necessario 

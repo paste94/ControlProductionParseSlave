@@ -5,6 +5,7 @@ import SelectNewOrTerminate from '../pages/2-select-new-or-terminate/SelectNewOr
 import SelectNewJob from '../pages/3-select-new-job/SelectNewJob';
 import SelectMacchina from '../pages/4-select-macchina/SelectMacchina';
 import Terminate from '../pages/5-terminate/Terminate';
+import Impostazioni from '../pages/settings/Impostazioni';
 
 function AppRoutes(){
     const firstPage = '/selectImpiegato'
@@ -47,6 +48,14 @@ function AppRoutes(){
             main: () => {
                 return(
                     <Terminate />
+                )
+            }
+        },{
+            key: 5,
+            path: '/impostazioni',
+            main: () => {
+                return(
+                    <Impostazioni />
                 )
             }
         }

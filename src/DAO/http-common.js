@@ -1,14 +1,14 @@
 import Parse from 'parse'
-import serverUrl from '../serverUrl.json'
 
-Parse.initialize('ParseServerAzzalin');
-Parse.serverURL = serverUrl.URL
+Parse.initialize('ControlProductionServer', 'CP_m4st3r_k3y');
+Parse.serverURL = localStorage.getItem('ServerUrl') + '/parse'
 
 const commesse = 'commesse'
 const impiegati = 'impiegati'
 const articoli = 'articoli'
 const preventivo = 'preventivo'
 const lavori = 'lavori'
+const macchine = 'macchine'
 
 function strToDate(date){
   console.log(date)
@@ -29,4 +29,4 @@ function dateToStr(date){
   return dd + '/' + mm + '/' + yyyy
 }
 
-export {commesse, impiegati, articoli, preventivo, lavori, strToDate, dateToStr, Parse}
+export {commesse, impiegati, articoli, preventivo, lavori, macchine, strToDate, dateToStr, Parse}

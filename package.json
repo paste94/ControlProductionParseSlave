@@ -4,7 +4,7 @@
   "private": true,
   "main": "public/electron.js",
   "author": "Riccardo Pasteris",
-  "homepage":"./",
+  "homepage": "./",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -55,7 +55,7 @@
   "build": {
     "appId": "com.electron.react.control-production-slave",
     "icon": "build/logo512.png",
-    "asar":"false"
+    "asar": "false"
   },
   "eslintConfig": {
     "extends": [

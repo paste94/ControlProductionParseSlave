@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
-import { Row, Col, Container, FormControl, Spinner } from 'react-bootstrap';
+import { Row, Col, Container, FormControl, Spinner, Button } from 'react-bootstrap';
 import { Alert, AlertContainer } from 'react-bs-notifier';
 import { useHistory } from 'react-router';
 import { getImpiegatoFromChip } from '../../DAO/Impiegati.service';
+import { FaCog } from 'react-icons/fa'
+import { NavLink } from 'react-router-dom';
+
 
 function SelectImpiegato(){
     const [errTitle, setErrTitle] = useState('')
@@ -83,6 +86,21 @@ function SelectImpiegato(){
                     </Col>
                 </Row>
             </Container>
+            <NavLink 
+                to={"/impostazioni"} 
+                key={0} 
+                activeClassName="active" >
+                <Button
+                    variant='link'
+                    title="impostazioni"
+                    style={{
+                        position: 'absolute',
+                        left: 20,
+                        bottom: 20,
+                    }} > 
+                        <FaCog style={{ color: 'grey' }}/>
+                </Button>
+            </NavLink>
         </div>
     )
 }
