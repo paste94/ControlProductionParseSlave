@@ -3,6 +3,7 @@ import { Button, Col, Form, FormCheck, FormControl, InputGroup, Row } from 'reac
 import { NavLink } from 'react-router-dom';
 import BtnConfirm from './BtnConfirm';
 import { FaArrowLeft } from 'react-icons/fa'
+import packageJson from '../../../package.json';
 
 /**
  * Pagina per la visualizzazione degli articoli salvati.
@@ -59,6 +60,22 @@ function Impostazioni() {
                         onChange={ (e) => setServerUrl(e.target.value)}
                         value={serverUrl} />
                     </InputGroup>
+                </Col>
+            </Row>
+            <hr/>
+            <Row>
+                <Col>
+                    <h3>Credits</h3>
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    <p>Control Production Master (v{packageJson.version})</p>
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    <p>Creato da Riccardo Pasteris (<a href='mailto:riccardopasteris@gmail.com'>riccardopasteris@gmail.com</a>)</p>
                 </Col>
             </Row>
             <Row

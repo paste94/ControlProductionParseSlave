@@ -72,7 +72,7 @@ function closeJobs(lavoriIdList, callback, errorCallback){
                 const fine = new Date()
                 lavoroQuery
                     .set('fine', fine)
-                    .set('tempo', subtractDates(lavoro.inizio, fine))
+                    //.set('tempo', subtractDates(lavoro.inizio, fine))
                     .save()
             })
             .catch( error => 
