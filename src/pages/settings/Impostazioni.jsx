@@ -13,7 +13,7 @@ function Impostazioni() {
     const [serverUrl, setServerUrl] = useState('')
 
     const handleResetDefaultSettings = () => {
-        localStorage.setItem('ServerUrl', 'http://localhost:1337')
+        localStorage.setItem('ServerUrl', 'http://192.168.1.4:1337/parse')
         setServerUrl(localStorage.getItem('ServerUrl'))
     }
 
@@ -76,6 +76,11 @@ function Impostazioni() {
             <Row>
                 <Col>
                     <p>Creato da Riccardo Pasteris (<a href='mailto:riccardopasteris@gmail.com'>riccardopasteris@gmail.com</a>)</p>
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    <p>Davide Santià (<a href='mailto:davsan@infinito.it'>davsan@infinito.it</a>)</p>
                 </Col>
             </Row>
             <Row
