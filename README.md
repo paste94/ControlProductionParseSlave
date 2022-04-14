@@ -13,5 +13,7 @@ per eseguire il programma in developer mode è necessario
 - Controllare che nel file `http-common.js` alla riga 5 sia presente `Parse.serverURL = serverUrl.URL` (potrebbe essere indicato `Parse.serverURL = serverUrl.URLTest`, che non funziona in produzione). 
 - Modificare il numero della versione!!!
 ### Building
-Esistono due metodi di building, quello a 32 e a 64 bit. Per la versione a 32 bit eseguire il comando ` npm run build32`, mentre per la versione a 64 but eseguire ` npm run build`. Potrebbero volerci alcuni minuti. Verrà poi creata una cartella `build` contiene il programma eseguibile, criptato con asar e portatile. La cartella `dist` conterrà invece il pacchetto eseguibile con il quale è possibile installare il programma su altri dispositivi. Il programma viene installato sul path `C:\Users\username\AppData\Local\Programs\control-production-slave` dove **username** è il nome dell'utente del PC
-
+Per il building esistono vari metodi:
+- `npm run build` crea un pachetto usando come *target* il sistema della macchina in uso
+- `npm run buildwin32` crea un pacchetto per windows 32 bit
+- `npm run buildwin64` crea un pacchetto per windows 64 bit
