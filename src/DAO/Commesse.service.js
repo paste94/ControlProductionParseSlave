@@ -6,7 +6,7 @@ import {commesse, Parse} from './http-common';
  */
 async function getAllCommesse(callback){
     let query = new Parse.Query(commesse)
-    query.notEqualTo('eliminato', true)
+    query.notEqualTo('eliminato', true).notEqualTo('archiviata', true)
     let result = await query.find()
     let data = []
     result.forEach(elem => {

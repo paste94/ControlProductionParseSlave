@@ -4,7 +4,7 @@ function addLavoro(macchina, impiegato, commessa, preventivo, startTime, callbac
     new Parse.Object(lavori)
         .set('macchina', macchina.nome)
         .set('impiegatoId', impiegato.id)
-        .set('impiegatoNome', impiegato.nome)
+        //.set('impiegatoNome', impiegato.nome)
         .set('commessaId', commessa.id)
         .set('preventivoId', preventivo.id)
         .set('commessaNome', commessa.numero)
