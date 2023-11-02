@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Button } from 'react-bootstrap'
 import PropTypes from 'prop-types'
-import { FaTrash } from 'react-icons/fa'
 import ModalConfirm from './ModalConfirm'
 
 /**

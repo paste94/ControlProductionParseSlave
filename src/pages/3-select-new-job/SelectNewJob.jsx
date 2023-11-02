@@ -5,7 +5,7 @@ import { getAllCommesse } from '../../DAO/Commesse.service'
 import { selectPreventiviFromCommessa } from '../../DAO/Preventivo.service'
 import CommesseTable from './CommesseTable'
 import PreventiviTable from './PreventiviTable'
-import { FaArrowLeft, FaCross, FaTimes } from "react-icons/fa"
+import { FaTimes } from "react-icons/fa"
 import { Alert, AlertContainer } from 'react-bs-notifier'
 import { NavLink } from 'react-router-dom';
 
@@ -52,7 +52,7 @@ function SelectNewJob(){
         }else{
             selectPreventiviFromCommessa( commessa.id, prev => setPreventivi(prev), handleShowError )
         }
-    }, [commessa])
+    }, [commessa, firstRender])
 
     return (
         <div>

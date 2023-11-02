@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import TerminateTable from './TerminateTable'
 import { Row, Col, Container, Button } from 'react-bootstrap'
-import { useLocation, useHistory } from 'react-router'
+import { useLocation } from 'react-router'
 import { closeJobs, getLavori } from '../../DAO/Lavori.service';
 import { Alert, AlertContainer } from 'react-bs-notifier'
 import { FaTimes } from "react-icons/fa"
@@ -34,7 +34,7 @@ function Terminate(props){
 
     useEffect(() => {
         getLavori(impiegato.id, data => setData(data), handleShowError)
-    }, [])
+    }, [impiegato])
 
     return (
         <div>

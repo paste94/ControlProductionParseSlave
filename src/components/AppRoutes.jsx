@@ -1,5 +1,4 @@
 import {BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
-import React, { useState } from 'react';
 import SelectImpiegato from '../pages/1-select-impiegato/SelectImpiegato';
 import SelectNewOrTerminate from '../pages/2-select-new-or-terminate/SelectNewOrTerminate';
 import SelectNewJob from '../pages/3-select-new-job/SelectNewJob';

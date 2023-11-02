@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Col, Form, FormCheck, FormControl, InputGroup, Row } from 'react-bootstrap';
+import { Button, Col, Form, FormControl, InputGroup, Row } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import BtnConfirm from './BtnConfirm';
 import { FaArrowLeft } from 'react-icons/fa'
