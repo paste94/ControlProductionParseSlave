@@ -22,5 +22,7 @@ jobs:
           node-version: '16'
       - name: Install dependencies
         run: yarn install
+      - name: Install electron-builder
+        run: npm i electron-builder
       - name: Run Build
         run: npm run buildwin64
