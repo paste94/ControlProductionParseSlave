@@ -23,6 +23,6 @@ jobs:
       - name: Install dependencies
         run: yarn install
       - name: Install electron-builder
-        run: npm i electron-builder
+        run: npm i electron-builder -g
       - name: Run Build
         run: npm run buildwin64
