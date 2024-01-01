@@ -8,9 +8,12 @@ jobs:
   release:
     runs-on: ${{ matrix.os }}
 
+    env:
+      GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+
     strategy:
       matrix:
-        os: [macos-latest]
+        os: [windows-latest]
 
     steps:
       - name: Check out Git repository
@@ -21,11 +24,6 @@ jobs:
         with:
           node-version: '16'
           cache: 'yarn'
-      
-      - name: Setup GH_TOKEN
-        uses: actions/setup-gh-token@v1
-        with:
-          GH_APP_TOKEN: ${{secrets.GH_APP_TOKEN}}
 
       - name: Install dependencies
         run: yarn install
