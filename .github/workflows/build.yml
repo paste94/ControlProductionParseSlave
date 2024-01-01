@@ -22,7 +22,7 @@ jobs:
           node-version: '16'
           cache: 'yarn'
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install
       - name: Install electron-builder
         run: npm i electron-builder -g
       - name: Run Build
