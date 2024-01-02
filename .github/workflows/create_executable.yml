@@ -18,8 +18,10 @@ jobs:
         os: [windows-latest]
 
     steps:
+      - uses: actions/checkout@v4
       - name: Checkout code
-        uses: actions/checkout@v4
+        id: vars
+        run: echo "tag=${GITHUB_REF#refs/*/}" >> $GITHUB_OUTPUT
 
       - name: Build project
         uses: actions/setup-node@v4
@@ -41,5 +43,10 @@ jobs:
 
       - name: Upload asset
         uses: actions/upload-release-asset@v1.0.1
+        env:
+            RELEASE_VERSION: ${{ steps.vars.outputs.tag }}
         with: 
             upload_url: ${{ steps.create_release.outputs.upload_url }}
+            asset_path: ./control-production-slave_$RELEASE_VERSION.exe
+            asset_name: control-production-slave_$RELEASE_VERSION.exe
+            asset_content_type: application/exe
