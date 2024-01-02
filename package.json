@@ -50,7 +50,7 @@
     "electron:buildw64": "electron-builder --x64 -w",
     "release": "npm run react:build && npm run electron-builder --publish=always",
     "buildwin32": "npm run react:build && npm run electron:buildw32",
-    "buildwin64": "npm run react:build && npm run electron:buildw64",
+    "buildwin64": "yarn run react:build && yarn run electron:buildw64",
     "build": "npm run react:build",
     "start": "concurrently \"cross-env BROWSER=none npm run react:start\" \"wait-on http://localhost:3000 && electron .\""
   },
