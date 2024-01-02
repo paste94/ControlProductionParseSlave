@@ -57,7 +57,8 @@
   "build": {
     "appId": "com.electron.react.control-production-slave",
     "icon": "build/logo512.png",
-    "asar": "false"
+    "asar": "false",
+    "artifactName": "${productName}_${version}_${os}.${ext}" 
   },
   "eslintConfig": {
     "extends": [
