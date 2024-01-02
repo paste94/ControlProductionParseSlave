@@ -10,8 +10,9 @@ per eseguire il programma in developer mode è necessario
 
 ## Rilascio in produzione
 ### Operazioni preliminari
-- Controllare che nel file `http-common.js` alla riga 5 sia presente `Parse.serverURL = serverUrl.URL` (potrebbe essere indicato `Parse.serverURL = serverUrl.URLTest`, che non funziona in produzione). 
-- Modificare il numero della versione!!!
+- Modificare il numero della versione
+- Modificare il numero del tag `git tag v*.*.*` allineandolo al numero di versione
+- Lanciare un build
 ### Building
 Per il building esistono vari metodi:
 - `npm run build` crea un pachetto usando come *target* il sistema della macchina in uso

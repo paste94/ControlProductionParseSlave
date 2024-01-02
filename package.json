@@ -1,6 +1,6 @@
 {
   "name": "control-production-slave",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "private": true,
   "main": "public/electron.js",
   "author": "Riccardo Pasteris",
@@ -48,9 +48,8 @@
     "react:eject": "react-scripts eject",
     "electron:buildw32": "electron-builder --ia32 -w",
     "electron:buildw64": "electron-builder --x64 -w",
-    "release": "npm run react:build && npm run electron-builder --publish=always",
-    "buildwin32": "npm run react:build && npm run electron:buildw32",
-    "buildwin64": "yarn run react:build && yarn run electron:buildw64",
+    "buildwin32": "yarn run react:build && yarn run electron:buildw32 --publish=onTag",
+    "buildwin64": "yarn run react:build && yarn run electron:buildw64 --publish=onTag",
     "build": "npm run react:build",
     "start": "concurrently \"cross-env BROWSER=none npm run react:start\" \"wait-on http://localhost:3000 && electron .\""
   },
@@ -58,7 +57,7 @@
     "appId": "com.electron.react.control-production-slave",
     "icon": "build/logo512.png",
     "asar": "false",
-    "artifactName": "${productName}_${version}_${os}.${ext}" 
+    "artifactName": "${productName}_${version}_${os}${arch}.${ext}"
   },
   "eslintConfig": {
     "extends": [
