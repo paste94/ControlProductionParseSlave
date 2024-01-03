@@ -1,7 +1,6 @@
 import {preventivo, Parse} from './http-common';
 
 async function selectPreventiviFromCommessa(commessaId, callback, errorCallback){
-    console.log(commessaId)
     if(commessaId === undefined){
         callback([])
     }
@@ -20,11 +19,6 @@ async function selectPreventiviFromCommessa(commessaId, callback, errorCallback)
                 })
             })
             callback(data)
-            // data.length === 0 ? 
-            //     errorCallback({
-            //         title: 'Nessun elemento trovato',
-            //         message: 'Non esiste nessun disegno per la commessa ' + commessaId
-            //     }) : callback(data)
         })
         .catch( error => 
             errorCallback({
