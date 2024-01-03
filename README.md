@@ -1,4 +1,5 @@
-# Aggiornamento v0.0.2
+# Aggiornamento v2.2.0
+Fix: risolta prima lettura di un lavoro
 
 ## Installazione
 Una volta clonato il progetto da git, esegui il comando `yarn install` per installare le dipendenze. 

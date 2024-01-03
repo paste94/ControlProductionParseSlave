@@ -1,9 +1,10 @@
 {
   "name": "control-production-slave",
-  "version": "2.1.2",
+  "version": "2.2.0",
   "private": true,
   "main": "public/electron.js",
   "author": "Riccardo Pasteris",
+  "description": "Slave application for control production system",
   "homepage": "./",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",

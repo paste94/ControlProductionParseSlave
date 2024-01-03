@@ -32,7 +32,8 @@ function SelectImpiegato(){
     }
     const handleSetData = (data) => {
         resetFormControl()
-        if(data[0].lavoriInCorso.length === 0){
+        console.log('AAA', data[0].lavoriInCorso)
+        if(data[0].lavoriInCorso === undefined || data[0].lavoriInCorso.length === 0){
             history.push({
                 pathname: '/selectNewJob',
                 state:{impiegato: data[0]}
