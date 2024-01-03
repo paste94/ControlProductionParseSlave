@@ -19,7 +19,6 @@ function SelectNewJob(){
     const [preventivi, setPreventivi] = useState([])
     const [commessa, setCommessa] = useState({})
     const [preventivo, setPreventivo] = useState(undefined)
-    const [firstRender, setFirstRender] = useState(true)
     const history = useHistory()
 
     const handleSelectCommessa = (comm) => {
@@ -45,15 +44,15 @@ function SelectNewJob(){
         setPreventivi([])
     }
 
+    useEffect(() => getAllCommesse( id => setCommesse(id) ) , [])
+
     useEffect(() => {
-        console.log('AAAAAAAA')
-        if(firstRender){ 
-            getAllCommesse( id => setCommesse(id) ) 
-            setFirstRender(false)
-        }else{
-            selectPreventiviFromCommessa( commessa.id, prev => setPreventivi(prev), handleShowError )
-        }
-    }, [commessa, firstRender])
+        selectPreventiviFromCommessa( 
+            commessa.id, 
+            prev => setPreventivi(prev), 
+            handleShowError 
+        )
+    }, [commessa])
 
     return (
         <div>

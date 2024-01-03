@@ -6,26 +6,26 @@ async function selectPreventiviFromCommessa(commessaId, callback, errorCallback)
     }
     else{
         new Parse.Query(preventivo)
-        .notEqualTo('eliminato', true)
-        .equalTo('parent', commessaId)
-        .find()
-        .then( res => {
-            let data = []
-            res.forEach(elem => {
-                let attr = elem.attributes
-                data.push({
-                    id: elem.id,
-                    ...attr
+            .notEqualTo('eliminato', true)
+            .equalTo('parent', commessaId)
+            .find()
+            .then( res => {
+                let data = []
+                res.forEach(elem => {
+                    let attr = elem.attributes
+                    data.push({
+                        id: elem.id,
+                        ...attr
+                    })
                 })
+                callback(data)
             })
-            callback(data)
-        })
-        .catch( error => 
-            errorCallback({
-                title: 'Errore di connessione',
-                message: error.message
-            })
-        )
+            .catch( error => 
+                errorCallback({
+                    title: 'Errore di connessione',
+                    message: error.message
+                })
+            )
     }
 }
 
