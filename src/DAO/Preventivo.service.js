@@ -1,7 +1,12 @@
 import {preventivo, Parse} from './http-common';
 
 async function selectPreventiviFromCommessa(commessaId, callback, errorCallback){
-    new Parse.Query(preventivo)
+    console.log(commessaId)
+    if(commessaId === undefined){
+        callback([])
+    }
+    else{
+        new Parse.Query(preventivo)
         .notEqualTo('eliminato', true)
         .equalTo('parent', commessaId)
         .find()
@@ -27,6 +32,7 @@ async function selectPreventiviFromCommessa(commessaId, callback, errorCallback)
                 message: error.message
             })
         )
+    }
 }
 
 export {

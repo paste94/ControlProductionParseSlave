@@ -46,6 +46,7 @@ function SelectNewJob(){
     }
 
     useEffect(() => {
+        console.log('AAAAAAAA')
         if(firstRender){ 
             getAllCommesse( id => setCommesse(id) ) 
             setFirstRender(false)
