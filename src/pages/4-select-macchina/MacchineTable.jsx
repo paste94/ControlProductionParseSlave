@@ -22,7 +22,7 @@ function MacchineTable(props){
             data={ props.data } 
             columns={ columns } 
             pagination={ paginationFactory() }
-            noDataIndication="Tabella vuota"
+            noDataIndication="Non sono presenti Macchine"
             selectRow={ selectRow } />
     )
 }

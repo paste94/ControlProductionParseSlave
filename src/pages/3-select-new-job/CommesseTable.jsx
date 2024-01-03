@@ -26,7 +26,7 @@ function CommesseTable(props){
             data={ props.data } 
             columns={ columns } 
             pagination={ paginationFactory() }
-            noDataIndication="Tabella vuota"
+            noDataIndication="Non sono presenti Commesse"
             selectRow={ selectRow } />
     )
 }

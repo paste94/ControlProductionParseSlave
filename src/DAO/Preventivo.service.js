@@ -14,11 +14,12 @@ async function selectPreventiviFromCommessa(commessaId, callback, errorCallback)
                     ...attr
                 })
             })
-            data.length === 0 ? 
-                errorCallback({
-                    title: 'Nessun elemento trovato',
-                    message: 'Non esiste nessun disegno per la commessa ' + commessaId
-                }) : callback(data)
+            callback(data)
+            // data.length === 0 ? 
+            //     errorCallback({
+            //         title: 'Nessun elemento trovato',
+            //         message: 'Non esiste nessun disegno per la commessa ' + commessaId
+            //     }) : callback(data)
         })
         .catch( error => 
             errorCallback({

@@ -27,7 +27,7 @@ function PreventiviTable(props){
             data={ props.data } 
             columns={ columns } 
             pagination={ paginationFactory() }
-            noDataIndication="Tabella vuota"
+            noDataIndication="Non sono presenti Disegni per la commessa"
             selectRow={ selectRow } />
     )
 }
