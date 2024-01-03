@@ -30,18 +30,17 @@ function SelectImpiegato(){
         setErrShow(true)
         resetFormControl()
     }
-    const handleSetData = (data) => {
+    const handleSetData = (impiegato) => {
         resetFormControl()
-        console.log('AAA', data[0].lavoriInCorso)
-        if(data[0].lavoriInCorso === undefined || data[0].lavoriInCorso.length === 0){
+        if(impiegato.lavoriInCorso === undefined || impiegato.lavoriInCorso.length === 0){
             history.push({
                 pathname: '/selectNewJob',
-                state:{impiegato: data[0]}
+                state:{impiegato: impiegato}
             })
         }else{
             history.push({
                 pathname: '/selectNewOrTerminate',
-                state:{impiegato: data[0]}
+                state:{impiegato: impiegato}
             })
         }
     } 

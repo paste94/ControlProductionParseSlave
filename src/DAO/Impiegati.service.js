@@ -1,34 +1,51 @@
-import { impiegati, Parse} from './http-common';
+/* eslint-disable no-throw-literal */
+import { impiegati, lavori, Parse} from './http-common';
 
-/**Ottiene tutti gli impiegati dal database
+/**Ottiene l'impiegato dal DB dato il chip
  * 
- * @param {*} responseCallback callback per successo.
+ * @param {*} chip Il chip collegato all'impiegato.
+ * @param {*} callback Callback per successo.
+ * @param {*} errorCallback Callback per errore.
+ * 
+ * @returns impiegato
  */
-function getImpiegatoFromChip(chip, callback, errorCallback){    
-    new Parse.Query(impiegati)
-        .notEqualTo('eliminato', true)
-        .equalTo('chip', chip)
-        .find()
-        .then((res) => {
-            let data = []
-            res.forEach(elem => 
-                data.push({
-                    id: elem.id,
-                    ...elem.attributes
-                })
-            )
-            data.length === 0 ? 
-                errorCallback({
-                    title: 'Nessun elemento trovato',
-                    message: 'Non è stato possibile trovare alcun dipendente con il numero di chip ' + chip
-                }) : callback(data)
+async function getImpiegatoFromChip(chip, callback, errorCallback) {
+    try {    
+        let impiegato = {}
+        let lavoriInCorso = []
+
+        const queryImpiegato = await new Parse.Query(impiegati)
+            .notEqualTo('eliminato', true)
+            .equalTo('chip', chip)
+            .find()
+
+        if(queryImpiegato.length === 0){
+            throw 'Non è stato possibile trovare alcun dipendente con il numero di chip ' + chip
+        }
+
+        impiegato = {
+            id: queryImpiegato[0].id,
+            ...queryImpiegato[0].attributes
+        }
+
+        const queryLavori = await new Parse.Query(lavori)
+            .notEqualTo('eliminato', true)
+            .equalTo('impiegatoId', impiegato.id)
+            .find()
+
+        queryLavori.forEach(elem => {
+            lavoriInCorso.push(elem.id)
         })
-        .catch((error) => {
-            errorCallback({
-                title: 'Errore di connessione',
-                message: error.message
-            })
+
+        impiegato['lavoriInCorso'] = lavoriInCorso
+        
+        callback(impiegato)
+    } catch (err) {
+        errorCallback({
+            title: 'Errore',
+            message: err
         })
+    }
 }
 
 export {getImpiegatoFromChip};
