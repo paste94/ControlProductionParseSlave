@@ -20,7 +20,10 @@ async function getImpiegatoFromChip(chip, callback, errorCallback) {
             .find()
 
         if(queryImpiegato.length === 0){
-            throw 'Non è stato possibile trovare alcun dipendente con il numero di chip ' + chip
+            throw {
+                'message':'Non è stato possibile trovare alcun dipendente con il numero di chip ' + chip,
+                'code': 101
+            }
         }
 
         impiegato = {
@@ -43,7 +46,7 @@ async function getImpiegatoFromChip(chip, callback, errorCallback) {
     } catch (err) {
         errorCallback({
             title: 'Errore',
-            message: err
+            message: err.message
         })
     }
 }
