@@ -1,6 +1,6 @@
 {
   "name": "control-production-slave",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "private": true,
   "main": "public/electron.js",
   "author": "Riccardo Pasteris",
