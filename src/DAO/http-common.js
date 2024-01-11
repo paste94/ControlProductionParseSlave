@@ -11,7 +11,6 @@ const lavori = 'lavori'
 const macchine = 'macchine'
 
 function strToDate(date){
-  console.log(date)
   if(date === ''){
       return ''
   }

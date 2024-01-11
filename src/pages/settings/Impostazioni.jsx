@@ -18,7 +18,6 @@ function Impostazioni() {
     }
 
     const handleSaveSettings = () => {
-        console.log('SAVE', serverUrl)
         localStorage.setItem('ServerUrl', serverUrl)
     }
 
@@ -101,11 +100,11 @@ function Impostazioni() {
                         handleConfirm={handleResetDefaultSettings}
                         title={'Resettare le impostazioni di default?'}>
                             Reset
-                    </BtnConfirm>
+                    </BtnConfirm >
                 </Col>
             </Row>
         </div>
-    )
+    ) 
 }
 
 export default Impostazioni;

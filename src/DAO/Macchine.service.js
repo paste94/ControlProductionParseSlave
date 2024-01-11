@@ -6,7 +6,7 @@ import { macchine, Parse} from './http-common';
  * @param {function} callbackError callback per errore.
  */
  function getAllMacchine(callback, callbackError) {
-    new Parse.Query(macchine)
+    new Parse.Query(macchine)  
         .notEqualTo('eliminato', true)
         .find()
         .then( result => {

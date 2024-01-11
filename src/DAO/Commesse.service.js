@@ -48,7 +48,6 @@ function deleteCommessa(id, callback){
     query.get(id)
         .then( 
             elem => {
-                console.log(elem)
                 elem.set('eliminato', true)
                 elem.save()
                 callback()
@@ -67,13 +66,10 @@ function updateCommessa(id, newVal, callback){
     const [key] = Object.keys(newVal)
     let query = new Parse.Query(commesse)
     newVal[key] = (key === 'data_offerta' || key === 'data_consegna') ? new Date(newVal[key]) : newVal[key]
-    console.log('EDIT', id, newVal)
     query.get(id)
         .then( 
             elem => {
-                console.log('THEN in GET')
                 elem.set( key, newVal[key] ).save().then( () => {
-                    console.log('THEN in SET')
                     callback()
                 })
             }, 

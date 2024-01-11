@@ -38,7 +38,6 @@ function SelectMacchina(){
                         <h1>Selezionare la macchina da usare</h1>
                     </Col>
                     <Col md="2" sm="2" xs="2" className='my-auto'> 
-                        {console.log(impiegato, commessa, preventivo, macchina)}
                         <ModalConfirm 
                             impiegato={impiegato} 
                             commessa={commessa} 

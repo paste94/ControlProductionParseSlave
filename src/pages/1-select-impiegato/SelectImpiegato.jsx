@@ -20,16 +20,21 @@ function SelectImpiegato(){
             setWaitForResponse(true)
             getImpiegatoFromChip(event.target.value, handleSetData, handleShowError)
             event.target.value = ''
+
         }
     }
 
     const resetFormControl = () => setWaitForResponse(false)
-    const handleDismissError = () => setErrShow(false)
+    const handleDismissError = () => {
+        setErrShow(false);
+        inputReference.current.focus()
+    }
     const handleShowError = (err) => {
         setErrMessage(err.message)
         setErrTitle(err.title)
         setErrShow(true)
         resetFormControl()
+        inputReference.current.focus()
     }
     const handleSetData = (impiegato) => {
         resetFormControl()
@@ -49,12 +54,13 @@ function SelectImpiegato(){
     return (
         <div>
             <AlertContainer
-				position='top-right' >
+				position='bottom-right' >
                     { errShow ? (
                         <Alert 
                             type='danger' 
                             headline={ errTitle }
-                            onDismiss={handleDismissError} >
+                            onDismiss={handleDismissError} 
+                            timeout={5000} >
                             {errMessage}
                         </Alert>
                     ) : null }

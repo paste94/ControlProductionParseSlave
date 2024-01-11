@@ -46,7 +46,7 @@ function BtnConfirm({
 BtnConfirm.propTypes = {
     handleConfirm: PropTypes.func.isRequired,
     title: PropTypes.string,
-    children: PropTypes.object,
+    children: PropTypes.string,
 }
 
 export default BtnConfirm
