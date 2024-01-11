@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Row, Col, Container, FormControl, Spinner, Button } from 'react-bootstrap';
 import { Alert, AlertContainer } from 'react-bs-notifier';
 import { useHistory } from 'react-router';
@@ -13,6 +13,7 @@ function SelectImpiegato(){
     const [errShow, setErrShow] = useState(false)
     const [waitForResponse, setWaitForResponse] = useState(false)
     const history = useHistory()
+    const inputReference = useRef(null);
 
     const handleChipSelection = (event) => {
         if (event.charCode === 13) {
@@ -69,6 +70,8 @@ function SelectImpiegato(){
                         <FormControl
                             autoFocus
                             disabled={waitForResponse}
+                            onBlur={() => inputReference.current.focus() }
+                            ref={inputReference} 
                             placeholder="Chip"
                             aria-label="Chip"
                             aria-describedby="basic-addon1"

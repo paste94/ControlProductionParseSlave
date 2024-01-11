@@ -44,7 +44,7 @@ function SelectNewJob(){
         setPreventivi([])
     }
 
-    useEffect(() => getAllCommesse( id => setCommesse(id) ) , [])
+    useEffect(() => getAllCommesse( id => setCommesse(id), handleShowError ) , [])
 
     useEffect(() => {
         selectPreventiviFromCommessa( 
