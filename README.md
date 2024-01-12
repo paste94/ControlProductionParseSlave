@@ -1,4 +1,4 @@
-# Aggiornamento v2.3.2
+# Aggiornamento v2.3.4
 Fix: risolta prima lettura di un lavoro
 
 ## Installazione
